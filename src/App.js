@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+  import React, { Component } from 'react';
+  import FilteredProductTable from './Components/FilteredProductsTable'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  class App extends Component {
+    state = {
+      'PRODUCTS' : [
+        {category:'games',name : 'football',price : '$50', stocked:true},
+        {category:'games' , name:'basketball',price:'$100', stocked:true},
+        {category:'games', name:'cricket',price:'$150', stocked:false},
+        {category:'electronics', name:'iphone',price:'$15000', stocked:true},
+        {category:'electronics', name:'laptop',price:'$2000', stocked:false},
+        {category:'electronics', name:'smart watch',price:'$300', stocked:true},
+        
+  ]
+    }
+    render() {
+      return (
+        <div> 
+          <h1>Products List</h1>
+          <FilteredProductTable products = {this.state.PRODUCTS} />
+          </div>
+      );
+    }
+  }
 
-export default App;
+  export default App;
